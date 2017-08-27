@@ -1,4 +1,5 @@
 {
+  "basePath": "/pwa/",
   "entrypoint": "index.html",
   "shell": "src/my-app.html",
   "fragments": [
