@@ -19,13 +19,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         padding: 10px;
       }
+      label, button {
+        display: block;
+      }
+      textarea {
+        width: 70%;
+        height: 3rem;
+      }
     </style>
 
     <div class="card">
-      <div class="circle">1</div>
-      <h1>View One</h1>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+      <div class="circle">LE01</div>
+      <h1>Profile</h1>
+
+      <ccm-form key="profile">
+
+        <p class="deadline points"></p>
+
+        <label for="firstname">Vorname:</label>
+        <input type="text" id="firstname">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+
+        <!-- semester is part of keys -->
+        <label for="my_semester">Semester:</label>
+        <input id="my_semester" type="number" value="3">
+
+        <label for="vorkenntnisse">Vorkenntnisse:</label>
+        <textarea id="vorkenntnisse" placeholder="Meine Vorkenntnisse in Software Engineering sind ..."></textarea>
+
+        <label for="erwartungen">Erwartungen:</label>
+        <textarea id="erwartungen" placeholder="Meine Erwartungen an diese Lehrveranstaltung sind ..."></textarea>
+
+        <button type="submit">Speichern!</button>
+
+      </ccm-form>
+
+      <h1>Lerneinheit 01</h1>
     </div>
   </template>
 

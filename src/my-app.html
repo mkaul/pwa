@@ -8,6 +8,11 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
+<script src="//akless.github.io/ccm-components/user/versions/ccm.user-1.0.0.min.js"></script>
+<script src="../../ccm/form/ccm.form.js"></script>
+<script src="../../ccm/uml/ccm.uml.js"></script>
+<script src="../../ccm/upload/ccm.upload.js"></script>
+
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
@@ -78,11 +83,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <app-drawer-layout fullbleed narrow="{{narrow}}">
       <!-- Drawer content -->
       <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
-        <app-toolbar>Menu</app-toolbar>
+        <app-toolbar>Lerneinheiten</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="[[rootPath]]view1">View One</a>
-          <a name="view2" href="[[rootPath]]view2">View Two</a>
-          <a name="view3" href="[[rootPath]]view3">View Three</a>
+          <a name="view1" href="[[rootPath]]view1">LE01</a>
+          <a name="view2" href="[[rootPath]]view2">LE02</a>
+          <a name="view3" href="[[rootPath]]view3">LE03</a>
         </iron-selector>
       </app-drawer>
 
@@ -92,7 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-header slot="header" condenses reveals effects="waterfall">
           <app-toolbar>
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
-            <div main-title>My App</div>
+            <div main-title>Software Engineering</div>
           </app-toolbar>
         </app-header>
 
