@@ -167,5 +167,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     window.customElements.define(MyApp.is, MyApp);
+
+    ccm.start = function ( polymer_element ) {
+
+      ccm['10.0.0'].start( 'form', {
+
+        root:   polymer_element.$.ccm_form_template,
+        fkey:   polymer_element.$.ccm_form_template.getAttribute('fkey'),
+        inner:  polymer_element.$.ccm_form_template.innerHTML
+
+      } );
+
+    };
   </script>
 </dom-module>
