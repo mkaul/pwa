@@ -27,16 +27,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         width: 50%;
         height: 3rem;
       }
-      #ccm_form_template {
-        display: none;
-      }
     </style>
 
     <div class="card">
       <div class="circle">LE01</div>
       <h1>Profile</h1>
 
-        <div id="ccm_form_template">
+        <ccm-form fkey="profile" id="ccm_form_template">
           <p class="deadline points"></p>
 
           <label for="firstname">Vorname:</label>
@@ -56,9 +53,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <button type="submit">Speichern!</button>
 
-        </div>
-
-      <div id="ccm_target"></div>
+        </ccm-form>
 
     </div>
   </template>
@@ -70,16 +65,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ready(){
         super.ready();
 
-        var ready = false;
+        window.ccm['10.0.0'].start('../../ccm/form/ccm.form.js', {
 
-        if ( ! ready) window.ccm['10.0.0'].start('../../ccm/form/ccm.form.js', {
+          root:   this.$.ccm_form_template,
+          fkey:   this.$.ccm_form_template.getAttribute('fkey'),
+          inner:  this.$.ccm_form_template.innerHTML
 
-          root: this.$.ccm_target,
-          fkey: 'profile',
-          inner: this.$.ccm_form_template.innerHTML
-
-        }, function ( instance ) {
-          ready = true;
         } );
 
       }
