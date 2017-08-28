@@ -11,8 +11,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
 
+
 <dom-module id="my-view1">
-  <template>
+  <template id="templ_my_view1">
     <style include="shared-styles">
       :host {
         display: block;
@@ -23,8 +24,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
       }
       textarea {
-        width: 70%;
+        width: 50%;
         height: 3rem;
+      }
+      #ccm_form_template {
+        display: none;
       }
     </style>
 
@@ -32,37 +36,53 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="circle">LE01</div>
       <h1>Profile</h1>
 
-      <ccm-form key="profile">
+        <div id="ccm_form_template">
+          <p class="deadline points"></p>
 
-        <p class="deadline points"></p>
+          <label for="firstname">Vorname:</label>
+          <input type="text" id="firstname">
 
-        <label for="firstname">Vorname:</label>
-        <input type="text" id="firstname">
+          <label for="name">Name:</label>
+          <input type="text" id="name">
 
-        <label for="name">Name:</label>
-        <input type="text" id="name">
+          <label for="my_semester">Semester:</label>
+          <input id="my_semester" type="number" value="3">
 
-        <!-- semester is part of keys -->
-        <label for="my_semester">Semester:</label>
-        <input id="my_semester" type="number" value="3">
+          <label for="vorkenntnisse">Vorkenntnisse:</label>
+          <textarea id="vorkenntnisse" placeholder="Meine Vorkenntnisse in Software Engineering sind ..."></textarea>
 
-        <label for="vorkenntnisse">Vorkenntnisse:</label>
-        <textarea id="vorkenntnisse" placeholder="Meine Vorkenntnisse in Software Engineering sind ..."></textarea>
+          <label for="erwartungen">Erwartungen:</label>
+          <textarea id="erwartungen" placeholder="Meine Erwartungen an diese Lehrveranstaltung sind ..."></textarea>
 
-        <label for="erwartungen">Erwartungen:</label>
-        <textarea id="erwartungen" placeholder="Meine Erwartungen an diese Lehrveranstaltung sind ..."></textarea>
+          <button type="submit">Speichern!</button>
 
-        <button type="submit">Speichern!</button>
+        </div>
 
-      </ccm-form>
+      <div id="ccm_target"></div>
 
-      <h1>Lerneinheit 01</h1>
     </div>
   </template>
 
   <script>
     class MyView1 extends Polymer.Element {
       static get is() { return 'my-view1'; }
+
+      ready(){
+        super.ready();
+
+        var ready = false;
+
+        if ( ! ready) window.ccm['10.0.0'].start('../../ccm/form/ccm.form.js', {
+
+          root: this.$.ccm_target,
+          fkey: 'profile',
+          inner: this.$.ccm_form_template.innerHTML
+
+        }, function ( instance ) {
+          ready = true;
+        } );
+
+      }
     }
 
     window.customElements.define(MyView1.is, MyView1);
