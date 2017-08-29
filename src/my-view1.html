@@ -64,15 +64,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       ready(){
         super.ready();
-        ccm.start( this );
+        // ccm.start( 'form' );
 
-//        ccm['10.0.0'].start('form', {
-//
-//          root:   this.$.ccm_form_template,
-//          fkey:   this.$.ccm_form_template.getAttribute('fkey'),
-//          inner:  this.$.ccm_form_template.innerHTML
-//
-//        } );
+        ccm.start('form', {
+
+          root:   this.$.ccm_form_template,
+          fkey:   this.$.ccm_form_template.getAttribute('fkey'),
+          inner:  this.$.ccm_form_template.innerHTML
+
+        } );
 
       }
     }
