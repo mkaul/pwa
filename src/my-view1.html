@@ -31,29 +31,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="card">
       <div class="circle">LE01</div>
-      <h1>Profile</h1>
+      <h1>LernEinheit LE01</h1>
 
-        <ccm-form fkey="profile" id="ccm_form_template">
-          <p class="deadline points"></p>
-
-          <label for="firstname">Vorname:</label>
-          <input type="text" id="firstname">
-
-          <label for="name">Name:</label>
-          <input type="text" id="name">
-
-          <label for="my_semester">Semester:</label>
-          <input id="my_semester" type="number" value="3">
-
-          <label for="vorkenntnisse">Vorkenntnisse:</label>
-          <textarea id="vorkenntnisse" placeholder="Meine Vorkenntnisse in Software Engineering sind ..."></textarea>
-
-          <label for="erwartungen">Erwartungen:</label>
-          <textarea id="erwartungen" placeholder="Meine Erwartungen an diese Lehrveranstaltung sind ..."></textarea>
-
-          <button type="submit">Speichern!</button>
-
-        </ccm-form>
+      <ccm-loader nr="1" id="loader_template"></ccm-loader>
 
     </div>
   </template>
@@ -64,15 +44,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       ready(){
         super.ready();
-        // ccm.start( 'form' );
-
-        ccm.start('form', {
-
-          root:   this.$.ccm_form_template,
-          fkey:   this.$.ccm_form_template.getAttribute('fkey'),
-          inner:  this.$.ccm_form_template.innerHTML
-
+        ccm.start( 'loader', {
+          root:   this.$.loader_template
         } );
+
+//        ccm.start('form', {
+//
+//          root:   this.$.ccm_form_template,
+//          fkey:   this.$.ccm_form_template.getAttribute('fkey'),
+//          inner:  this.$.ccm_form_template.innerHTML
+//
+//        } );
 
       }
     }
